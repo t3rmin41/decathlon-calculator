@@ -28,7 +28,7 @@ public class XmlGenerator {
     doc.appendChild(rootElement);
     
     for (int i = 0; i < athletes.size(); i++) {
-      //Athlete elements
+      //Athlete
       Element athlete = doc.createElement("athlete");
       rootElement.appendChild(athlete);
       

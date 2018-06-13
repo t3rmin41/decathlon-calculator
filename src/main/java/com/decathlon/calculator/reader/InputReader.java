@@ -10,5 +10,5 @@ public interface InputReader {
   
   Athlete parseAthleteResults(String line);
   
-  public Calculator getCalculator();
+  Calculator getCalculator();
 }

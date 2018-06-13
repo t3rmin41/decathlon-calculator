@@ -11,13 +11,8 @@ public enum EventType {
     this.title = title;
   }
   
-  public EventType getEventByTitle(String title) {
-    for (EventType type : EventType.values()) {
-      if (type.title.equals(title)) {
-        return type;
-      }
-    }
-    return null;
+  public String getTitle() {
+    return this.title;
   }
-  
+
 }

@@ -23,9 +23,6 @@ public class Main {
     String inputFile = args[0];
     String outputFile = args[1];
     
-//    String inputFile = "src/test/resources/Decathlon_input_test.txt";
-//    String outputFile = "src/main/resources/output.xml";
-    
     InputReader reader = new InputReaderImpl();
     
     XmlGenerator xmlGenerator = new XmlGenerator();
