@@ -1,6 +1,8 @@
 package com.decathlon.calculator.reader.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
 import org.junit.Test;
 import com.decathlon.calculator.domain.Athlete;
@@ -39,6 +41,11 @@ public class InputReaderTest {
     assertEquals(13.75, a3.getResults()[0].getResult(), 0);
     assertEquals(411.01, a4.getResults()[9].getResult(), 0);
     assertEquals("Peinado", a5.getLastName());
+  }
+  
+  @Test
+  public void checkIfCalculatorIsNotNull() {
+    assertNotNull(reader.getCalculator());
   }
   
 }
