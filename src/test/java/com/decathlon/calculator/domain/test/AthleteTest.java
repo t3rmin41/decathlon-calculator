@@ -9,7 +9,7 @@ import com.decathlon.calculator.domain.Athlete;
 public class AthleteTest {
 
   @Test
-  public void checkAthleteSorting() {
+  public void checkAthleteCompare() {
     List<Athlete> athletes = generateAthleteList();
     assertEquals(1, athletes.get(2).compareTo(athletes.get(3)));
     assertEquals(-1, athletes.get(1).compareTo(athletes.get(0)));
