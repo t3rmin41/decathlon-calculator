@@ -1,10 +1,11 @@
 package com.decathlon.calculator.app;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import com.decathlon.calculator.domain.Athlete;
+import com.decathlon.calculator.domain.AthleteSort;
 import com.decathlon.calculator.reader.InputReader;
 import com.decathlon.calculator.reader.InputReaderImpl;
 import com.decathlon.calculator.xml.XmlGenerator;
@@ -22,17 +23,17 @@ public class Main {
     }
     String inputFile = args[0];
     String outputFile = args[1];
-    
+
     InputReader reader = new InputReaderImpl();
-    
+
     XmlGenerator xmlGenerator = new XmlGenerator();
 
     List<Athlete> athletes = reader.readFromFile(inputFile);
-    
-    athletes.sort(Comparator.reverseOrder());
-    
+
+    Collections.sort(athletes, AthleteSort.SORT_DESCENDING);
+
     reader.getCalculator().setSortedAthletesPlaces(athletes);
-    
+
     try {
       xmlGenerator.generateAthletesXml(outputFile, athletes);
     } catch (ParserConfigurationException | TransformerException e) {

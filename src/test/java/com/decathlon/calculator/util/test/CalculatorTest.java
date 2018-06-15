@@ -1,11 +1,12 @@
 package com.decathlon.calculator.util.test;
 
 import static org.junit.Assert.assertEquals;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import org.junit.Test;
 import com.decathlon.calculator.domain.Athlete;
+import com.decathlon.calculator.domain.AthleteSort;
 import com.decathlon.calculator.domain.DecathlonEventResult;
 import com.decathlon.calculator.enums.DecathlonEvent;
 import com.decathlon.calculator.util.Calculator;
@@ -14,12 +15,12 @@ import com.decathlon.calculator.util.CalculatorImpl;
 public class CalculatorTest {
 
   private Calculator calc = new CalculatorImpl();
-  
+
   List<Athlete> athletes = generateAthleteList();
-  
+
   @Test
   public void checkEventCalculation() {
-    
+
     assertEquals(7379, calc.calculateEventPoints(athletes.get(0).getResults()[0]));
     assertEquals(0, calc.calculateEventPoints(athletes.get(0).getResults()[1]));
     assertEquals(431, calc.calculateEventPoints(athletes.get(1).getResults()[2]));
@@ -34,14 +35,15 @@ public class CalculatorTest {
   
   @Test
   public void checkSortedAthletesPlaces() {
-    
+
     for (Athlete a : athletes) {
       a.setPoints(calc.sumEventPoints(a.getResults()));
     }
-    
-    athletes.sort(Comparator.reverseOrder());
+
+    Collections.sort(athletes, AthleteSort.SORT_DESCENDING);
+
     calc.setSortedAthletesPlaces(athletes);
-    
+
     assertEquals(1, athletes.get(0).getPlace());
     assertEquals("1-2", athletes.get(1).getFormattedPlace());
     assertEquals(1, athletes.get(0).getPlacesShared());

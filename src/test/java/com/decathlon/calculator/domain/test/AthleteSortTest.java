@@ -1,21 +1,37 @@
 package com.decathlon.calculator.domain.test;
 
 import static org.junit.Assert.assertEquals;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import org.junit.Test;
 import com.decathlon.calculator.domain.Athlete;
+import com.decathlon.calculator.domain.AthleteSort;
 
-public class AthleteTest {
+public class AthleteSortTest {
 
+  private List<Athlete> athletes = generateAthleteList();
+  
   @Test
-  public void checkAthleteCompare() {
-    List<Athlete> athletes = generateAthleteList();
-    assertEquals(1, athletes.get(2).compareTo(athletes.get(3)));
-    assertEquals(-1, athletes.get(1).compareTo(athletes.get(0)));
-    assertEquals(0, athletes.get(0).compareTo(athletes.get(2)));
+  public void checkAthleteAscendingSort() {
+    Collections.sort(athletes, AthleteSort.SORT_ASCENDING);
+
+    assertEquals(9329, athletes.get(0).getPoints());
+    assertEquals(10223, athletes.get(1).getPoints());
+    assertEquals(12779, athletes.get(2).getPoints());
+    assertEquals(12779, athletes.get(3).getPoints());
   }
   
+  @Test
+  public void checkAthleteDescendingSort() {
+    Collections.sort(athletes, AthleteSort.SORT_DESCENDING);
+
+    assertEquals(12779, athletes.get(0).getPoints());
+    assertEquals(12779, athletes.get(1).getPoints());
+    assertEquals(10223, athletes.get(2).getPoints());
+    assertEquals(9329, athletes.get(3).getPoints());
+  }
+
   private List<Athlete> generateAthleteList() {
     List<Athlete> athletes = new LinkedList<Athlete>();
     

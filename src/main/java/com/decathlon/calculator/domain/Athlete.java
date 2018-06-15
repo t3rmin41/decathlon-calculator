@@ -1,6 +1,6 @@
 package com.decathlon.calculator.domain;
 
-public class Athlete implements Comparable<Athlete> {
+public class Athlete  {
 
   private String firstName;
   private String lastName;
@@ -54,13 +54,7 @@ public class Athlete implements Comparable<Athlete> {
       return new Integer(place).toString();
     }
   }
-  @Override
-  public int compareTo(Athlete a) {
-    if (this.points > a.getPoints()) return 1;
-    if (this.points < a.getPoints()) return -1;
-    return 0;
-  }
-  
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
