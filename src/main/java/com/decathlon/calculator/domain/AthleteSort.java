@@ -4,11 +4,11 @@ import java.util.Comparator;
 
 public class AthleteSort {
 
-  public static final Comparator<Athlete> SORT_ASCENDING = new AthleteAscending();
+  public static final Comparator<Athlete> SORT_POINTS_ASCENDING = new AthletePointsAscending();
   
-  public static final Comparator<Athlete> SORT_DESCENDING = new AthleteDescending();
+  public static final Comparator<Athlete> SORT_POINTS_DESCENDING = new AthletePointsDescending();
   
-  private static class AthleteAscending implements Comparator<Athlete> {
+  private static class AthletePointsAscending implements Comparator<Athlete> {
     @Override
     public int compare(Athlete a1, Athlete a2) {
       if (a1.getPoints() > a2.getPoints()) return 1;
@@ -17,7 +17,7 @@ public class AthleteSort {
     }
   }
   
-  private static class AthleteDescending implements Comparator<Athlete> {
+  private static class AthletePointsDescending implements Comparator<Athlete> {
     @Override
     public int compare(Athlete a1, Athlete a2) {
       if (a1.getPoints() < a2.getPoints()) return 1;

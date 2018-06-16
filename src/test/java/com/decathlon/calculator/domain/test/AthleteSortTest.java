@@ -14,7 +14,7 @@ public class AthleteSortTest {
   
   @Test
   public void checkAthleteAscendingSort() {
-    Collections.sort(athletes, AthleteSort.SORT_ASCENDING);
+    Collections.sort(athletes, AthleteSort.SORT_POINTS_ASCENDING);
 
     assertEquals(9329, athletes.get(0).getPoints());
     assertEquals(10223, athletes.get(1).getPoints());
@@ -24,7 +24,7 @@ public class AthleteSortTest {
   
   @Test
   public void checkAthleteDescendingSort() {
-    Collections.sort(athletes, AthleteSort.SORT_DESCENDING);
+    Collections.sort(athletes, AthleteSort.SORT_POINTS_DESCENDING);
 
     assertEquals(12779, athletes.get(0).getPoints());
     assertEquals(12779, athletes.get(1).getPoints());

@@ -40,7 +40,7 @@ public class CalculatorTest {
       a.setPoints(calc.sumEventPoints(a.getResults()));
     }
 
-    Collections.sort(athletes, AthleteSort.SORT_DESCENDING);
+    Collections.sort(athletes, AthleteSort.SORT_POINTS_DESCENDING);
 
     calc.setSortedAthletesPlaces(athletes);
 

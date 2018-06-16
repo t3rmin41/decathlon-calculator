@@ -30,7 +30,7 @@ public class Main {
 
     List<Athlete> athletes = reader.readFromFile(inputFile);
 
-    Collections.sort(athletes, AthleteSort.SORT_DESCENDING);
+    Collections.sort(athletes, AthleteSort.SORT_POINTS_DESCENDING);
 
     reader.getCalculator().setSortedAthletesPlaces(athletes);
 
